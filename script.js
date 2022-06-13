@@ -9,6 +9,7 @@ let color = "#000000";
 let grabberActive = false;
 let eraserActive = false;
 let rainbowActive = false;
+let gridActive = true;
 
 function createGrid(size = 8) {
   root.style.setProperty("--gridRows", size);
@@ -147,4 +148,15 @@ rainbow.addEventListener("click", () => {
   toggleState(rainbow);
   if (rainbow.dataset.state === "active") rainbowActive = true;
   else rainbowActive = false;
+});
+
+gridLines.addEventListener("click", () => {
+  toggleState(gridLines);
+  if (gridLines.dataset.state === "active") gridActive = true;
+  else gridActive = false;
+  const cell = document.querySelectorAll(".cell");
+  cell.forEach((cell) => {
+    if (gridActive) cell.style.borderColor = "black";
+    else cell.style.borderColor = "transparent";
+  });
 });
