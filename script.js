@@ -21,6 +21,7 @@ function createGrid(size = 8) {
       grid.appendChild(div);
     }
   }
+  listenEvent();
 }
 
 function toggleState(ele) {
@@ -80,6 +81,17 @@ function RGBToHex(rgb) {
   if (g.length == 1) g = "0" + g;
   if (b.length == 1) b = "0" + b;
   return "#" + r + g + b;
+}
+
+function listenEvent() {
+  const cell = document.querySelectorAll(".cell");
+  cell.forEach((cell) => {
+    cell.addEventListener("mousedown", (e) => handleEvent(e));
+    cell.addEventListener("mouseenter", (e) => handleEvent(e));
+    cell.addEventListener("click", (e) => {
+      if (eraserActive || grabberActive) handleEvent(e);
+    });
+  });
 }
 
 penColor.addEventListener("input", () => {
