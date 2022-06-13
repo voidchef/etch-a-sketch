@@ -6,6 +6,8 @@ const bgColor = document.querySelector(".bgColor");
 const colorGrabber = document.querySelector(".colorGrabber");
 const eraser = document.querySelector(".eraser");
 const rainbow = document.querySelector(".rainbow");
+const slider = document.querySelector(".slider");
+const value = document.querySelector(".value");
 const gridLines = document.querySelector(".gridLines");
 const clear = document.querySelector(".clear");
 
@@ -122,6 +124,12 @@ function listenEvent() {
   });
 }
 
+function removeAllChildNodes() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+}
+
 penColor.addEventListener("input", () => {
   color = penColor.value;
 });
@@ -154,6 +162,12 @@ rainbow.addEventListener("click", () => {
   else rainbowActive = false;
 });
 
+slider.oninput = function () {
+  removeAllChildNodes();
+  createGrid(this.value);
+  value.textContent = this.value + " x " + this.value;
+};
+
 gridLines.addEventListener("click", () => {
   toggleState(gridLines);
   if (gridLines.dataset.state === "active") gridActive = true;
@@ -171,3 +185,5 @@ clear.addEventListener("click", () => {
     cell.style.background = bgColor.value;
   });
 });
+
+createGrid(slider.value);
