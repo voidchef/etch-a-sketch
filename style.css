@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.heading {
+  color: red;
+  font-family: Lobster;
+  font-size: 3em;
+  margin: 0 auto;
+}
+
+.info {
+  color: orange;
+  font-family: cursive;
+  font-size: 1.5em;
+}
