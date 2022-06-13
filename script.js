@@ -7,6 +7,7 @@ const colorGrabber = document.querySelector(".colorGrabber");
 const eraser = document.querySelector(".eraser");
 const rainbow = document.querySelector(".rainbow");
 const gridLines = document.querySelector(".gridLines");
+const clear = document.querySelector(".clear");
 
 let color = "#000000";
 let grabberActive = false;
@@ -161,5 +162,12 @@ gridLines.addEventListener("click", () => {
   cell.forEach((cell) => {
     if (gridActive) cell.style.borderColor = "black";
     else cell.style.borderColor = "transparent";
+  });
+});
+
+clear.addEventListener("click", () => {
+  const cell = document.querySelectorAll(".cell");
+  cell.forEach((cell) => {
+    cell.style.background = bgColor.value;
   });
 });
