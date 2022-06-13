@@ -4,6 +4,9 @@ const cell = document.querySelectorAll(".cell");
 const penColor = document.querySelector(".penColor");
 const bgColor = document.querySelector(".bgColor");
 const colorGrabber = document.querySelector(".colorGrabber");
+const eraser = document.querySelector(".eraser");
+const rainbow = document.querySelector(".rainbow");
+const gridLines = document.querySelector(".gridLines");
 
 let color = "#000000";
 let grabberActive = false;
