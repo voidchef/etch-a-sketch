@@ -1,3 +1,9 @@
+:root {
+  --gridRows: 8;
+  --gridColumns: 8;
+  background-color: #181818;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -15,4 +21,29 @@
   color: orange;
   font-family: cursive;
   font-size: 1.5em;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+
+.gridContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #181a1b;
+  width: 660px;
+  height: 660px;
+  border: 2px solid #008cff;
+}
+
+.grid {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(var(--gridColumns), 1fr);
+  grid-template-rows: repeat(var(--gridRows), 1fr);
 }
