@@ -7,6 +7,7 @@ const colorGrabber = document.querySelector(".colorGrabber");
 
 let color = "#000000";
 let grabberActive = false;
+let eraserActive = false;
 
 function createGrid(size = 8) {
   root.style.setProperty("--gridRows", size);
@@ -40,6 +41,13 @@ function reset(evt) {
       toggleState(colorGrabber);
     }
   }
+
+  if (evt !== "eraser") {
+    if (eraserActive) {
+      eraserActive = false;
+      toggleState(eraser);
+    }
+  }
 }
 
 penColor.addEventListener("input", () => {
@@ -58,4 +66,11 @@ colorGrabber.addEventListener("click", () => {
   toggleState(colorGrabber);
   if (colorGrabber.dataset.state === "active") grabberActive = true;
   else grabberActive = false;
+});
+
+eraser.addEventListener("click", () => {
+  reset("eraser");
+  toggleState(eraser);
+  if (eraser.dataset.state === "active") eraserActive = true;
+  else eraserActive = false;
 });
