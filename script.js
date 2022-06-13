@@ -83,6 +83,29 @@ function RGBToHex(rgb) {
   return "#" + r + g + b;
 }
 
+function handleEvent(e) {
+  if (e.buttons > 0) {
+    if (!eraserActive && !grabberActive) {
+      if (rainbowActive === true)
+        e.target.style.background = generateRandomColor();
+      else e.target.style.background = color;
+      e.target.dataset.status = "colored";
+    }
+
+    if (eraserActive && !grabberActive) {
+      e.target.style.background = bgColor.value;
+      e.target.dataset.status = "empty";
+    }
+
+    if (grabberActive && !eraserActive) {
+      penColor.value = RGBToHex(e.target.style.background);
+      color = e.target.style.background;
+      grabberActive = false;
+      toggleState(colorGrabber);
+    }
+  }
+}
+
 function listenEvent() {
   const cell = document.querySelectorAll(".cell");
   cell.forEach((cell) => {
