@@ -6,6 +6,8 @@ Project to create a Etch A Sketch using only HTML, CSS and Vanilla JS.
 
 [Etch A Sketch](https://voidchef.github.io/etch-a-sketch/)
 
+![etch-a-sketch](https://user-images.githubusercontent.com/79092620/173864593-f6c3b8b4-ffa7-4db9-93dc-3a631c949f05.png)
+
 **Note:** This Website works best with High Resolution Screens (1080p and up). Check the [improvements section](#improvements) for future updates.
 
 ## Built with
